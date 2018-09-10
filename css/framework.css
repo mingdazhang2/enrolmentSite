@@ -11,17 +11,17 @@ body{
     width: 32px;
 }
 .ifont{
-    font-family: 'Nixie One', cursive  ;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 body, p {
-    font-family: 'Nixie One', cursive  ;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     color: #535353;
     font-size: 1.2em;
     }
 
 h1 {
     color: white;
-    font-family: 'Nixie One', cursive;
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
     font-size: 2em;
     }
 h2 {
