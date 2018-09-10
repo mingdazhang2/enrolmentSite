@@ -10,3 +10,7 @@
     }
 
 }
+/*Bootstrap 4 bug fixed*/
+ .row:before, .row:after{
+ 	 display: inline-block; 
+ }
