@@ -1,0 +1,11 @@
+.content_main_title span{
+	font-size: 22px;
+	color:#225378;
+	/*margin-bottom: 1em;*/
+
+
+}
+.content_main_title, .content_main_form{
+		padding:1em;
+		margin:0 1em;
+}

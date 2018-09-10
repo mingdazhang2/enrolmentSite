@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Southern Institute</title>
+    <!-- <link href="images/logo/Logo_colour.png.ico" rel="icon" type="image/x-icon" /> -->
+    <link href="https://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/responsive-nav.css"> -->
+    <link rel="stylesheet" href="src/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="src/validation/dist/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link href="src/select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/search-input.css">
+    <link rel="stylesheet" href="css/radio.css">
+    <link rel="stylesheet" href="css/tab-list.css">
+    <link rel="stylesheet" href="css/framework.css">
+    <link rel="stylesheet" href="css/contentLeft.css">
+    <link rel="stylesheet" href="css/contentRight.css">
+    <link rel="stylesheet" href="css/contentMain.css">
+    <link rel="stylesheet" href="css/control.css">
+    <link rel="stylesheet" href="css/checkbox.css">
+    <link href="src/datepicker-master/dist/datepicker.css" rel="stylesheet">
+
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+
+    <script src="src/select/dist/js/bootstrap-select.min.js"></script>
+    <script src="src/validation/dist/js/bootstrapValidator.min.js"></script>
+    <script src="src/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="src/datepicker-master/dist/datepicker.js"></script>
+    <script src="js/validationForm.js"></script>
+    <script src="js/control.js"></script>
+</head>
+
+<body>
+    <div class="search-bar row ">
+        <div class="col-sm-4 mr-auto ">
+            <div class=" search-input input-group  stylish-input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon">
+                    <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+
+        </div>
+
+        <nav class=" col-auto ">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 2</a></li>
+            </ul>
+
+        </nav>
+    </div>
+
+
+    <div class='header row '>
+        <div class="logo col-sm">
+            <img src='images/logo/Logo_colour.png' class="img_center" alt='logo' title='logo'>
+        </div>
+    </div>
+    <div class="header row">
+        <div class='header_content col-sm'>
+            <span>ENROLMENT FORM</span>
+        </div>
+
+    </div>
+
+
+    <div class="main row">
+        <div class="content_left col-md-3 ">
+            <div id="stepOnebk" class="content_left_active">
+                <div class="checkbox_title ">
+                    <div class="col">
+                        <span class="biggerfont ">1 </span><span class="bigfont">APPLY</span>
+                    </div>
+                </div>
+                <div class="checkbox checkbox_content row">
+                    <i class="cr-icon glyphicon glyphicon-menu-right col-8 mr-auto"><span class="ifont">basic info</span></i>
+                    <label class="col-2 col-auto">
+                        <input class="tickedbox" type="checkbox" value="">
+                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    </label>
+                </div>
+            </div>
+
+            <div id="stepTwobk" class="content_left_inactive">
+                <div class="checkbox_title ">
+                    <div class="col-sm">
+                        <span class="biggerfont ">2 </span><span class="bigfont">SELECT A COURSE</span>
+                    </div>
+                </div>
+                <div class="checkbox checkbox_content row">
+                    <i class="cr-icon glyphicon glyphicon-menu-right col-8 "><span class="ifont">select a course</span></i>
+                    <label class="col-2">
+                        <input class="tickedbox_two" type="checkbox" value="">
+                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                    </label>
+                </div>
+            </div>
+
+
+
+
+            <div class="content_left_finish">
+                <div class="checkbox_title"><span class="biggerfont">3 </span><span class="bigfont">FINISH</span> </div>
+            </div>
+
+
+        </div>
+
+        <div class="content_main col-md-5">
+            <div class="form_step_one">
+                <div class="content_main_title"><span>BASIC INFO</span></div>
+                <div class="content_main_form">
+                    <form data-toggle="validator" id="myForm">
+                        <div class="form-group row">
+                            <label class="control-label col-sm-4">Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control " name="username" placeholder="Your Name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="control-label col-sm-4">Email</label>
+                            <div class="col-sm-8">
+                                <input type="email" class="form-control" name="email" placeholder="Email" data-error="Bruh, that email address is invalid" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="control-label col-sm-4">Date of Birth</label>
+                            <div class="col-sm-8">
+                                <input class="form-control" name="birthday" placeholder="MM/DD/YYYY" data-toggle="datepicker" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="labeltext">Have you studied before?</label><br>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="customradio "><span class="radiotextsty">Yes</span>
+                                    <input type="radio" checked="checked" name="radio" value="yes" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="col-sm-9"></div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-sm-1"></div>
+                            <div class=" col-sm-11"><span class="radio_info">SIT is a government accredited tertiary provider of NZQA programmes at certificate, diploma, bachelor degree</span></div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label class="customradio "><span class="radiotextsty">No</span>
+                                    <input type="radio" checked="checked" name="radio" value="no" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="col-sm-9"></div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-sm-1"></div>
+                            <div class=" col-sm-11"><span class="radio_info">Welcome to the Southern Institute of Technology (SIT), a great choice for a quality education and the home of </span></div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <div class="form-group row">
+
+                            <div class="stuied col-sm-12">
+                                <label class="labeltext">What have you studied ?</label><br>
+                                <select name="hiscourses" class="form-control selectpicker" required>
+                                    <option value="">Choose the Course</option>
+                                    <option value="Sample Course 1">Sample Course 1</option>
+                                    <option value="Sample Course 2">Sample Course 2</option>
+                                    <option value="Sample Course 3">Sample Course 3</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            <div class=" col-sm-4 mr-auto"></div>
+                            <button class="col-sm-4 col-auto step_one_btn btn btn-secondary">
+                                NEXT<i class="glyphicon glyphicon-triangle-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- step 2 form start -->
+            <div class="form_step_two">
+                <div class="content_main_title"><span>SELECT A COURSE</span></div>
+                <div class="content_main_form">
+                    <form data-toggle="validator" id="myForm2">
+                        <div class="form-group row">
+                            <div class=" col-sm-12">
+                                <!-- <label class="labeltext">What have you studied ?</label><br> -->
+                                <select name="seletcourse" class="form-control selectpicker" required>
+                                    <option value="">Choose the Course</option>
+                                    <option value="Sample Course 1">Sample Course 1</option>
+                                    <option value="Sample Course 2">Sample Course 2</option>
+                                    <option value="Sample Course 3">Sample Course 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <button class="col-sm-4 mr-auto step_two_preBtn col-auto btn btn-secondary"><i class="glyphicon glyphicon-triangle-left" aria-hidden="true"></i>PREVIOUS</button>
+                            <button class="col-sm-4 col-auto step_two_btn col-auto btn btn-secondary">NEXT<i class="glyphicon glyphicon-triangle-right" aria-hidden="true"></i></button>
+
+
+                        </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+            <!-- step 2 form end -->
+            <!-- step finish form start -->
+            <div class="form_step_finsh">
+                <div class="content_main_title"><span>SUMMARY</span></div>
+                <div class="content_main_form">
+                    <form data-toggle="validator" id="myForm3">
+                        <div class="form-group row">
+                            <div name="username" class="label_title control-label col-sm-6"></div>
+                            <div class="lcontrol-label col-md-6"></div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+                        <div class="form-group row">
+                            <label class="label_title control-label col-sm-5 mr-auto col-auto">Email:</label>
+                            <div name="email" class="control-label col-sm-4 col-auto"></div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="label_title control-label col-sm-5 mr-auto col-auto">Date of Birth:</label>
+                            <div name="dob" class="control-label col-sm-4 col-auto"></div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="label_title control-label col-sm-5 mr-auto col-auto">History course:</label>
+                            <div name="hisC" class="control-label col-sm-4 col-auto"></div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="label_title control-label col-sm-5 mr-auto col-auto">Selected course:</label>
+                            <div name="selC" class="control-label col-sm-4 col-auto"></div>
+                        </div>
+                        <br />
+                        <br />
+                        <br />
+
+
+                        <div class="form-group row ">
+                            <button class="col-sm-4 mr-auto step_finish_preBtn col-auto btn btn-secondary"><i class="glyphicon glyphicon-triangle-left" aria-hidden="true"></i>PREVIOUS</button>
+
+                            <button class="col-sm-4 col-auto step_finish_btn col-auto btn btn-success">SUBMIT<i class="glyphicon glyphicon-triangle-right" aria-hidden="true"></i></button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- step finish form end -->
+        </div>
+
+        <div class="content_right col-md-4">
+            <div class="content_right" id="content_right">
+                <div class="content_right_title"><span>GENERAL INFORMATION</span></div>
+                <div class="content_right_box">
+                    <div class="content_right_box_title"><span>Step 1 Basic Info</span></div>
+                    <div class="content_right_box_content">
+                        ou can also study selected programmes online via SIT2LRN Distance Learning. 2018 we also offer specalised Audio, Music, Live Event </div>
+                </div>
+            </div>
+
+            <div class="content_right" id="content_right_two">
+                <div class="content_right_title"><span>GENERAL INFORMATION</span></div>
+                <div class="content_right_box">
+                    <div class="content_right_box_title"><span>Step 2 Select a Course</span></div>
+                    <div class="content_right_box_content">
+                        ou can also study selected programmes online via SIT2LRN Distance Learning. 2018 we also offer specalised Audio, Music, Live Event </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="alert alert-success">
+        <strong>Congratulations!</strong> You've successfully submitted.
+    </div>
+    <footer>
+        <div class="footer_content row">
+            <div class="footer_left col-4">
+                <a href="index.html"><img src='images/logo/Logo_white.png' alt='logo' title='logo' /></a>
+            </div>
+
+            <div class="footer_right col-8">
+                <div class="contact_title"><span>CONTACT US</span></div>
+                <ul class='contact_detail'>
+                    <li>
+                        <p class="contact_content">Within New Zealand</p>
+                        <p class="contact_info">0800403337</p>
+                    </li>
+                    <li>
+                        <p class="contact_content">Email</p>
+                        <p class="contact_info">info@sit.ac.nz</p>
+                    </li>
+                    <li>
+                        <p class="contact_content">Website</p>
+                        <p class="contact_info">www.sit.ac.nz</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer_copyright">
+            <p>Copyright &copy;2018 <a href="">Southern Instiute of Technology.ITS.</a></p>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
