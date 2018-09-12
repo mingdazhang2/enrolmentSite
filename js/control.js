@@ -105,8 +105,8 @@ $(function() {
         $('#content_right').show();
         $('#content_right_two').hide();
         // Modify css for step one 
-        $('#stepOnebk').attr('class', 'content_left_active')
-        $('#stepTwobk').attr('class', 'content_left_inactive')
+        $('#stepOnebk').attr('class', 'content_left_active content_left_tab')
+        $('#stepTwobk').attr('class', 'content_left_inactive  content_left_tab')
         $('.content_left_finish').removeClass('content_left_finish_active');
         $('.content_left_finish .checkbox_title') .css("background-color","white");
     })
@@ -128,8 +128,8 @@ $(function() {
         $('#content_right_two').show();
         $('.content_left_finish').removeClass('content_left_finish_active');
         // Modify css for step two   
-        $('#stepOnebk').attr('class', 'content_left_inactive')
-        $('#stepTwobk').attr('class', 'content_left_active')
+        $('#stepOnebk').attr('class', 'content_left_inactive content_left_tab')
+        $('#stepTwobk').attr('class', 'content_left_active  content_left_tab')
         $('.content_left_finish').removeClass('content_left_finish_active');
         $('.content_left_finish .checkbox_title') .css("background-color","white");
         return false;
