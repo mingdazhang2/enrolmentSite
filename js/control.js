@@ -57,8 +57,8 @@ $(function() {
             $('.form_step_two').show();
             $('#content_right').hide();
             $('#content_right_two').show();
-            $('#stepOnebk').attr('class', 'content_left_inactive')
-            $('#stepTwobk').attr('class', 'content_left_active')
+            $('#stepOnebk').attr('class', 'content_left_inactive content_left_tab')
+            $('#stepTwobk').attr('class', 'content_left_active content_left_tab')
             //save data
             student.username = $('.form_step_one [name="username"]').val()
             student.email = $('.form_step_one [name="email"]').val()
@@ -80,8 +80,8 @@ $(function() {
             $('.form_step_finsh').show();
             $('#content_right').hide();
             $('#content_right_two').hide();
-            $('#stepOnebk').attr('class', 'content_left_inactive')
-            $('#stepTwobk').attr('class', 'content_left_inactive')
+            $('#stepOnebk').attr('class', 'content_left_inactive content_left_tab')
+            $('#stepTwobk').attr('class', 'content_left_inactive content_left_tab')
             //save date
             student.selC = $('.form_step_two [name="seletcourse"]').val()
             //pass data to SUMMARY form
@@ -92,6 +92,7 @@ $(function() {
             $('.form_step_finsh [name="selC"]').text(student.selC)
             //Highlight the setp3 tab page backgroud color on the left
             $('.content_left_finish').addClass('content_left_finish_active');
+             $('.content_left_finish .checkbox_title') .css("background-color","#f1e0c2");
             return false;
         }
     });
@@ -107,6 +108,7 @@ $(function() {
         $('#stepOnebk').attr('class', 'content_left_active')
         $('#stepTwobk').attr('class', 'content_left_inactive')
         $('.content_left_finish').removeClass('content_left_finish_active');
+        $('.content_left_finish .checkbox_title') .css("background-color","white");
     })
     // Summary form submit click event 
     $(".step_finish_btn").click(function() {
@@ -129,6 +131,7 @@ $(function() {
         $('#stepOnebk').attr('class', 'content_left_inactive')
         $('#stepTwobk').attr('class', 'content_left_active')
         $('.content_left_finish').removeClass('content_left_finish_active');
+        $('.content_left_finish .checkbox_title') .css("background-color","white");
         return false;
 
     })
