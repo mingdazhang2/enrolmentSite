@@ -184,7 +184,8 @@ nav li, footer li, nav ul, footer ul {
     margin: auto;
     color: #225378;
     font-size: 3em;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
 }
 .header_content{
     display: flex;
