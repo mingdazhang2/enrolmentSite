@@ -1,3 +1,12 @@
+.content_left_tab:before{
+ content:"";
+ width: 1px;
+ height: 40%;
+ position: absolute;
+ z-index: -1;
+ margin: 0 43.5%;
+ background-color:#1695a3;
+}
 .content_left_finish{
 	border: 1px solid #ffa700;
 	color: #ffa700;
