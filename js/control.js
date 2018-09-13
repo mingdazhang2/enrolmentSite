@@ -85,6 +85,10 @@ $(function() {
             //save date
             student.selC = $('.form_step_two [name="seletcourse"]').val()
             //pass data to SUMMARY form
+
+            if(radioVal!='yes'){
+                student.hisC = ""
+            }
             $('.form_step_finsh [name="username"]').text(student.username)
             $('.form_step_finsh [name="email"]').text(student.email)
             $('.form_step_finsh [name="dob"]').text(student.dob)
