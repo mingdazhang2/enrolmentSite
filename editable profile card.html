@@ -1,0 +1,295 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<style>
+#profileName, #profileTitle{
+ white-space: nowrap; 
+ 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.card h2 {
+  margin-top:8px;
+}
+.profileTitle {
+  color: grey;
+  font-size: 18px;
+}
+
+.stdProBtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #ea6321;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+.stdProBtn:hover, a:hover {
+  opacity: 0.7;
+}
+.img-responsive{
+	margin:0 auto;
+}
+.profileContentDiv{
+	height:22rem;
+	padding:0 1em 1em 1em;
+	
+	
+}
+
+
+.profileContent {
+  overflow : hidden;
+  position: relative;
+  height: 8.4em; /* exactly 7 lines */
+  text-align: left;
+  margin:0;
+}
+.profileContent:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.2em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+}
+.modal-header{
+  background-color:#ea6321!important;
+}
+.profileEditor{
+	display: none;
+}
+.btn-primary {
+	margin: 1em auto;
+}
+</style>
+<script>
+$(document).ready(function () {
+
+$('.stdProBtn').click(function(e){
+e.preventDefault();
+ let cardImgSrc = $(this).closest('div').closest('.card').find("img").attr('src')
+	let cardTitle = $(this).closest('div').closest('.card').find(".profileTitle").text()
+	let cardContent = $(this).closest('div').closest('.card').find(".profileContent").text()
+	$('#myModal .modal-title').text(cardTitle)
+	<!-- $('#myModal .modal-body').append('<img style="width:100%" class="img-responsive" src="'+cardImgSrc+'" />').append('<p>'+cardContent+'</p>'); -->
+	$('#myModal .modalContent').text(cardContent)
+    $('#myModal .modalImg').attr('src',cardImgSrc);	
+})
+
+});
+function toggleEditor(theTextId,theEditorId,editorAreaId) {
+   var theText = document.getElementById(theTextId)
+   var theEditor = document.getElementById(editorAreaId);
+   var editorArea = document.getElementById(theEditorId);
+ 
+   //set text in text div to textarea
+   //correct line breaks, prevent HTML injection
+   var subject = theText.innerHTML;
+   <!-- subject = subject.replace(new RegExp("<br />", "gi"), 'n'); -->
+   <!-- subject = subject.replace(new RegExp("<br />", "gi"), 'n'); -->
+   <!-- subject = subject.replace(new RegExp("<", "gi"), '<'); -->
+   <!-- subject = subject.replace(new RegExp(">", "gi"), '>'); -->
+   theEditor.value = subject;
+ 
+   //hide text, show editor
+   theText.style.display = 'none';
+   editorArea.style.display = 'inline';
+}
+function doEdit(theTextId,theEditorId,editorAreaId) {
+   var theText = document.getElementById(theTextId);
+   var theEditor = document.getElementById(editorAreaId);
+   var editorArea = document.getElementById(theEditorId);
+ 
+   //this is where you would call your AJAX update script
+   //e.g., doXMLRequest(data);
+   //you probably want to make your DB update BEFORE converting for display
+ 
+   //set text to be value in editor
+   //correct line breaks, prevent HTML injection
+   var subject = theEditor.value;
+   <!-- subject = subject.replace(new RegExp("<", "g"), '<'); -->
+   <!-- subject = subject.replace(new RegExp(">", "g"), '>'); -->
+   <!-- subject = subject.replace(new RegExp("n", "g"), '<br />'); -->
+   theText.innerHTML = subject;
+ 
+   //hide editor, show text
+   theText.style.display = 'block';
+   editorArea.style.display = 'none';
+}
+</script>
+<script>
+$( document ).ready(function() {
+	let profileHTML  = ''
+	let slickCardItemHTML = ''
+	
+	let embedInitCode = ''
+	let counter = 0
+	$('.subBtn').click(function(){
+	counter++;
+<!-- Creat card start -->	
+
+	let profileName = $('#profileName').text();
+	let profileTitle = $('#profileTitle').text();
+	let profileContent = $('#profileContent').text();	 
+	let profileImage = $('#profileImage').val()==''?'demo.jpg':$('#profileImage').val()
+	
+	let profileHTML_head = "<!-- Profile card start-->";
+	let profileHTML_footer = "<!-- Profile card end-->" ;
+	profileHTML = "<div class='card'><img src='/portals/0/Upload/Images/Profiles/"+ profileImage+"' class='img-responsive' style='width:100%;' alt='profileImg' onerror='"+"this.src=\"/portals/0/Upload/Images/Profiles/demo.jpg\""+";this.onerror=null;' ><div class = 'profileContentDiv'>"
+			+"<h2 class='profileName'>"+profileName +"</h2>"
+			+"<p class='profileTitle'>"+profileTitle+"</p>"
+			+"<p class='profileContent'>"+profileContent+"</p>"
+			+"</div><div><div class='stdProBtn'>More</div></div></div>"
+		
+	slickCardItemHTML = profileHTML_head+ '<div class="slickCardItem cardItem-'+counter+'">'+ profileHTML +'</div>' + profileHTML_footer
+	$('#profileSlick').html(slickCardItemHTML)	
+		
+	let embedCode = embedInitCode + $('#profileSlickWrapper').html()
+	$('#embedCode').text(slickCardItemHTML)
+	$('#profileName').val('')
+	$('#profileTitle').val('')
+	$('#profileContent').val('')
+	$('#profileImage').val('')
+	
+	});
+	
+	$('#profileImage').focusout(function(){
+		let imgName = $('#profileImage').val()
+		$('.card img').attr('src', imgName);
+		$('.card img').attr("onerror", "this.onerror=null;this.src='https://placeimg.com/325/240/any';" )
+	}) 
+	
+	
+	$('.copyBtn').click(function(){
+		copyEmbedCode();
+	})
+});
+function copyEmbedCode() {
+  /* Get the text field */
+  var copyText = document.getElementById("embedCode");
+
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied success " );
+}
+</script>
+<body>
+	
+	<h3 style="text-align:center">Profile Card Generater </h3>
+	<hr/>
+	<div class="container">
+		<div class="col-sm-6 ">
+			<div class="card"> 
+				<input class="form-control profileImage" id="profileImage" type="textbox" placeholder="The Profile Image Name: demo.jpg" value=""></input>
+				<img src="/portals/0/Upload/Images/Profiles/demo.jpg" onerror="this.onerror=null;this.src='https://placeimg.com/325/240/any';" class="img-responsive" alt="img" >
+				<div class = "profileContentDiv">
+					<h2 id="profileName" onclick="toggleEditor('profileName','editor','ta1')" >Daming</h2>
+					<div id="editor" class="profileEditor">
+						<textarea id="ta1" name="ta1" rows="1" cols="30"></textarea><br />
+						<input name="submit" id="submit" type="button" value="Edit Text" onclick="doEdit('profileName','editor','ta1')" />
+					</div>
+					<p class="profileTitle" id="profileTitle" onclick="toggleEditor('profileTitle','editor2','ta2')">Title here, Example</p>
+					<div id="editor2" class="profileEditor">
+						<textarea id="ta2" name="ta2" rows="1" cols="30"></textarea><br />
+						<input name="submit" id="submit" type="button" value="Edit Text" onclick="doEdit('profileTitle','editor2','ta2')" />
+					</div>
+					<p class="profileContent" id="profileContent" onclick="toggleEditor('profileContent','editor3','ta3')">Content Here:Sign up to our mailing list for updtory  accreditation with NZQA. Sign up to our mailing list for updtory reditation with NZQA. Sign up to our mailing list for updtory More programmes will be available as we finalise accreditation with NZQA. Sign up to our mailing list for updates.</p>
+					<div id="editor3" class="profileEditor">
+						<textarea id="ta3" name="ta3" rows="5" cols="30"></textarea><br />
+						<input name="submit" id="submit" type="button" value="Edit Text" onclick="doEdit('profileContent','editor3','ta3')" />
+					</div>	
+				</div>
+				<div>			 
+					<div  data-toggle="modal" data-target="#myModal" class="stdProBtn">More</div>		
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-sm-6">
+			
+			<div class="form-group">
+				
+				<button class="btn btn-primary subBtn">Generate Code</button>
+				<br/>
+				<label class="control-label" for="embedCode">Embed Code:</label>		
+				<!-- <div class="textareaMask"></div> -->
+				<textarea id="embedCode" rows="15" cols="30" class="form-control"></textarea>			
+				<button class="btn btn-primary copyBtn">Copy</button>
+				
+			</div>
+			<!-- <div id="profileSlickWrapper" class="wrapper">  -->
+				<!-- <div id ="profileSlick" class="slick">  -->
+				 <!-- </div> -->
+			<!-- </div>  -->
+		</div>
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+			
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+				  
+				  <img style="width:100%" class="modalImg img-responsive" alt="image" />
+				  <p class="modalContent">Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			  
+			</div>
+		</div>
+	</div>
+		
+
+  
+</div>
+</body>
+
+	
+</html>
