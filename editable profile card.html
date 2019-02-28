@@ -170,13 +170,15 @@ $( document ).ready(function() {
 	
 	let profileHTML_head = "<!-- Profile card start-->";
 	let profileHTML_footer = "<!-- Profile card end-->" ;
-	profileHTML = "<div class='card'><img src='/portals/0/Upload/Images/Profiles/"+ profileImage+"' class='img-responsive' style='width:100%;' alt='profileImg' onerror='"+"this.src=\"/portals/0/Upload/Images/Profiles/demo.jpg\""+";this.onerror=null;' ><div class = 'profileContentDiv'>"
+	//profileHTML = "<div class='card'><img src='/portals/0/Upload/Images/Profiles/"+ profileImage+"' class='img-responsive' style='width:100%;' alt='profileImg' onerror='"+"this.src=\"/portals/0/Upload/Images/Profiles/demo.jpg\""+";this.onerror=null;' ><div class = 'profileContentDiv'>"
+	profileHTML = "<div class='card'><img src='/portals/0/Upload/Images/Profiles/"+ profileImage+"' class='img-responsive' style='width:100%;' alt='profileImg' onerror=\"this.onerror=null;this.src='https://placeimg.com/325/240/any'\"><div class = 'profileContentDiv'>"
 			+"<h2 class='profileName'>"+profileName +"</h2>"
 			+"<p class='profileTitle'>"+profileTitle+"</p>"
 			+"<p class='profileContent'>"+profileContent+"</p>"
 			+"</div><div><div class='stdProBtn'>More</div></div></div>"
 		
-	slickCardItemHTML = profileHTML_head+ '<div class="slickCardItem cardItem-'+counter+'">'+ profileHTML +'</div>' + profileHTML_footer
+	//slickCardItemHTML = profileHTML_head+ '<div class="slickCardItem cardItem-'+counter+'">'+ profileHTML +'</div>' + profileHTML_footer
+	slickCardItemHTML = '<div class="slickCardItem cardItem-'+counter+'">'+ profileHTML +'</div>' 
 	$('#profileSlick').html(slickCardItemHTML)	
 		
 	let embedCode = embedInitCode + $('#profileSlickWrapper').html()
